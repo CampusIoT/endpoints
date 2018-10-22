@@ -30,5 +30,6 @@ ESP32 Heltec boards (ESP32 + Wifi + BLE + LoRa SX1276 + OLED display)
 * https://github.com/matthijskooijman/arduino-lmic
 * https://github.com/unprovable/LoRaChat
 * https://www.thethingsnetwork.org/forum/t/big-esp32-sx127x-topic/10247/18
+* https://www.thethingsnetwork.org/labs/story/heltec-lorawan-gps-quick-start
 
  :satellite:  :fr:  :us:
