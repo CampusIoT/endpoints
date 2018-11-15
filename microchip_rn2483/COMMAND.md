@@ -55,11 +55,11 @@ The mac pause command must be called before any radio transmission or reception,
   radio rx 0
 
 
-# Configure the LoRa modem for sending messages (IQ inversion is ON)
+### Configure the LoRa modem for sending messages (IQ inversion is ON)
   mac pause
   radio set iqi on
 
-# Send a frame
+### Send a frame
   radio tx C0534f5320444944494552
 
 Remark: C0534f5320444944494552 is "SOS DIDIER" and C0 is a proprietary frame in the LoRaWAN specification
@@ -75,7 +75,6 @@ Remark: C0534f5320444944494552 is "SOS DIDIER" and C0 is a proprietary frame in 
 
 
   sys get hweui
-  >> 0004A30B001B44A6
 
 ### Set the EUIs and AppKey for ABP
 
@@ -87,9 +86,8 @@ Remark: C0534f5320444944494552 is "SOS DIDIER" and C0 is a proprietary frame in 
   mac set devaddr 0C000014
   mac save
   mac join abp                
-  mac tx cnf 1 01020304
-  mac tx uncnf 1 0102034
-
+  mac tx cnf 1 534f5320444944494552
+  mac tx uncnf 1 534f5320444944494552
 
 
   mac reset 868
@@ -98,10 +96,7 @@ Remark: C0534f5320444944494552 is "SOS DIDIER" and C0 is a proprietary frame in 
   mac set appeui FEDCBA9876543210
   mac set appkey 0004A30B001BA7BCFEDCBA9876543210        
 
-
-
   mac set pwridx 1
-
 
   mac set dr 0
   mac set adr on                
@@ -113,7 +108,6 @@ Remark: C0534f5320444944494552 is "SOS DIDIER" and C0 is a proprietary frame in 
   mac get rx2 868    
   mac set rx2 3 869525000
 
-
   mac get ch freq 0
   mac get ch freq 1
   mac get ch freq 2
@@ -121,7 +115,7 @@ Remark: C0534f5320444944494552 is "SOS DIDIER" and C0 is a proprietary frame in 
   mac get ch dcycle 1
   mac get ch dcycle 2
 
-  # set DC to 50%
+  > set DC to 50%
   mac set ch dcycle 0 1
   mac set ch dcycle 1 1                
   mac set ch dcycle 2 1                
