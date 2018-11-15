@@ -1,7 +1,7 @@
 # Commands for driving the RN2483 modem
 
 ## Install
-You can install Coolterm http://freeware.the-meiers.org/ for send commands to the modem. The modem configuration must be 57600/8/N/1 and command lines must be terminated with <CR><LF>.
+You can install Coolterm http://freeware.the-meiers.org/ for sending commands to the modem. The modem configuration must be 57600/8/N/1 and command lines must be terminated with <CR><LF>.
 
 ## LoRa Commands
 The mac pause command must be called before any radio transmission or reception, even if no MAC operations have been initiated before.
