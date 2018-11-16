@@ -1,19 +1,21 @@
 # Commands for driving the RN2483 modem
 
 ## Install
-You can install Coolterm http://freeware.the-meiers.org/ for send commands to the modem. The modem configuration must be 57600/8/N/1 and command lines must be terminated with <CR><LF>.
+You can install Coolterm http://freeware.the-meiers.org/ for sending commands to the modem. The modem configuration must be 57600/8/N/1 and command lines must be terminated with <CR><LF>.
 
 ## LoRa Commands
 The mac pause command must be called before any radio transmission or reception, even if no MAC operations have been initiated before.
 
 ### Read the modem information
+```
   sys factoryRESET
   sys get ver
   sys get vdd
   sys get hweui
-
+```
 
 ### Read the actual modem configuration
+```
   mac pause
   radio get mod
   radio get freq
@@ -29,9 +31,10 @@ The mac pause command must be called before any radio transmission or reception,
   radio get crc
   radio get cr
   radio get snr
-
+```
 
 ### Configure the LoRa modem
+```
   mac pause
   radio set bt 1
   radio set mod lora
@@ -46,39 +49,42 @@ The mac pause command must be called before any radio transmission or reception,
   radio set sync 12
   radio set bw 125
   radio set wdt 2000
-
+```
 ### Configure the LoRa modem for receiving frames (IQ inversion is OFF)
+```
   mac pause
   radio set iqi off
-
+```
 ### Start the reception
+```
   radio rx 0
+```
 
-
-# Configure the LoRa modem for sending messages (IQ inversion is ON)
+### Configure the LoRa modem for sending messages (IQ inversion is ON)
+```
   mac pause
   radio set iqi on
+```
 
-# Send a frame
+### Send a frame
+```
   radio tx C0534f5320444944494552
-
+```
 Remark: C0534f5320444944494552 is "SOS DIDIER" and C0 is a proprietary frame in the LoRaWAN specification
 
 ## LoRaWAN (Mac) Commands
 
 ### Set the EUIs and AppKey for OTAA
-
+```
   mac set deveui 0004A30B001BA7BC                    
   mac set appeui FEDCBA9876543210
   mac set appkey 0004A30B001BA7BCFEDCBA9876543210        
   mac set pwridx 1
 
-
   sys get hweui
-  >> 0004A30B001B44A6
-
+```
 ### Set the EUIs and AppKey for ABP
-
+```
   mac set deveui 0004A30B001B44A6                    
   mac set appeui FEDCBA9876543210
   mac set appkey 0004A30B001B44A6FEDCBA9876543210        
@@ -87,9 +93,8 @@ Remark: C0534f5320444944494552 is "SOS DIDIER" and C0 is a proprietary frame in 
   mac set devaddr 0C000014
   mac save
   mac join abp                
-  mac tx cnf 1 01020304
-  mac tx uncnf 1 0102034
-
+  mac tx cnf 1 534f5320444944494552
+  mac tx uncnf 1 534f5320444944494552
 
 
   mac reset 868
@@ -98,10 +103,7 @@ Remark: C0534f5320444944494552 is "SOS DIDIER" and C0 is a proprietary frame in 
   mac set appeui FEDCBA9876543210
   mac set appkey 0004A30B001BA7BCFEDCBA9876543210        
 
-
-
   mac set pwridx 1
-
 
   mac set dr 0
   mac set adr on                
@@ -113,7 +115,6 @@ Remark: C0534f5320444944494552 is "SOS DIDIER" and C0 is a proprietary frame in 
   mac get rx2 868    
   mac set rx2 3 869525000
 
-
   mac get ch freq 0
   mac get ch freq 1
   mac get ch freq 2
@@ -121,7 +122,7 @@ Remark: C0534f5320444944494552 is "SOS DIDIER" and C0 is a proprietary frame in 
   mac get ch dcycle 1
   mac get ch dcycle 2
 
-  # set DC to 50%
+  > set DC to 50%
   mac set ch dcycle 0 1
   mac set ch dcycle 1 1                
   mac set ch dcycle 2 1                
@@ -134,6 +135,6 @@ Remark: C0534f5320444944494552 is "SOS DIDIER" and C0 is a proprietary frame in 
 
   mac tx cnf 1 01020304
   mac tx uncnf 1 0102034
-
+```
 ## References
 *   RN2483 LoRa Technology Module Command Reference User’s Guide http://ww1.microchip.com/downloads/en/DeviceDoc/40001784B.pdf 
