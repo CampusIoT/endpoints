@@ -1,5 +1,8 @@
 // From https://support.sodaq.com/sodaq-one/lorawan/
 
+// This program requires the OneWire library
+// Import it from Sketch > Include Libraries > Manage Libraries… and search "OneWire"
+
 #include <Sodaq_RN2483.h>
 
 #define debugSerial SerialUSB
