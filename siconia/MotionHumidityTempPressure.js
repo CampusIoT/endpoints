@@ -103,7 +103,7 @@ function stop() {
 
 function onJoin() {
     green.blink(3);
-    print("node has joined devAddr="+L.devAddr());
+    //print("node has joined devAddr="+L.devAddr());
 
 		M.init();
 		M.motion(MOTION_THRESHOLD, sendMotion);
@@ -134,7 +134,7 @@ function onTx(tx_status) {
 	15 : No free channel for transmission
 	*/
     orange.blink();
-		print("tx tx_status="+tx_status);
+		//print("tx tx_status="+tx_status);
 
 }
 
@@ -161,7 +161,7 @@ function onEndTx(tx_status) {
 
 15 : No free channel for transmission
 		*/
-		print("endTx tx_status="+tx_status);
+		//print("endTx tx_status="+tx_status);
 }
 
 function onRx(parameters) {
@@ -194,7 +194,7 @@ function onRx(parameters) {
 */
 
     green.blink(3);
-		print("rx parameters="+parameters);
+		//print("rx parameters="+parameters);
 }
 
 // LoRaWAN Events section
